@@ -57,3 +57,8 @@ declare module '*.png' {
 }
 
 /* CUSTOM: ADD YOUR OWN HERE */
+
+declare function GetTotalDevices(): Promise<number>;
+interface USB {
+  getTotalDevices: typeof GetTotalDevices;
+}

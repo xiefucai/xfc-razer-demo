@@ -8,44 +8,31 @@
     <link rel="stylesheet" type="text/css" href="/index.css" />
     <title>Snowpack App</title>
     <style>
-      html,body{
-        padding: 0;
-        margin: 0;
-        display: block;
-        height: 100%;
-        overflow: hidden;
-      }
-      .nav{
+      .locked{
+        position: fixed;
+        background-color: rgba(0,0,0,0.5);
         display: flex;
-        height: 40px;
-      }
-      .nav a{
-        display: block;
-        line-height: 40px;
-        background-color: #2da9e4;
+        align-items: center;
+        justify-content: center;
         color: white;
-        text-align: center;
-        padding: 0 2em;
-        text-decoration: none;
-        border-right: 1px solid #59bae8;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
       }
-      .nav a:hover{
-        background-color: #2894c7;
-      }
-      #frame{
-        height: calc(100% - 40px);
+      .locked::before{
+        content: attr(data-text);
+        display: block;
+        font-size: 40px;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <nav class="nav">
-      <a href="lock.html" target="frame">web lock api验证</a>
-      <a href="indexeddb.html" target="frame">indexedDB验证</a>
-      <a href="usb.html" target="frame">usb api验证</a>
-    </nav>
-    <iframe width="100%" src="lock.html" id="frame" name="frame" frameborder="0"></iframe>
+    <div id="root" class="locked" data-text="Locked by else page">
+    </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="module" src="/dist/index.js"></script>
+    <script type="module" src="/dist/lock.js"></script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

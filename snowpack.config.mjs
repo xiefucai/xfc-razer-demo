@@ -1,5 +1,6 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
+  workspaceRoot:'.',
   mount: {
     public: { url: '/', static: true },
     src: { url: '/dist' },
@@ -10,7 +11,7 @@ export default {
       {
         /* Yarn PnP workaround: see https://www.npmjs.com/package/@snowpack/plugin-typescript */
         ...(process.versions.pnp ? { tsc: 'yarn pnpify tsc' } : {}),
-      },
+      }
     ],
   ],
   routes: [
@@ -18,6 +19,9 @@ export default {
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
   ],
   optimize: {
+    bundle: true,
+    minify: true,
+    target: 'es2018'
     /* Example: Bundle your final build: */
     // "bundle": true,
   },
