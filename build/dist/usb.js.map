@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../build/dist/usb.js"],
+  "sourcesContent": ["navigator.usb.getTotalDevices = async () => {\n  const devices = await navigator.usb.getDevices();\n  return devices.length;\n};\nnavigator.usb.getDevices().then((devices) => {\n  console.log(\"Total devices: \" + devices.length);\n  devices.forEach((device) => {\n    console.log(\"Product name: \" + device.productName + \", serial number \" + device.serialNumber);\n  });\n});\ndocument.getElementById(\"btn\")?.addEventListener(\"click\", () => {\n  navigator.usb.getTotalDevices().then((num) => {\n    alert(\"getTotalDevices: \" + num);\n  });\n}, false);\nexport {};\n"],
+  "mappings": "AAAA,UAAU,IAAI,gBAAkB,SAEvB,AADS,MAAM,WAAU,IAAI,cACrB,OAEjB,UAAU,IAAI,aAAa,KAAK,AAAC,GAAY,CAC3C,QAAQ,IAAI,kBAAoB,EAAQ,QACxC,EAAQ,QAAQ,AAAC,GAAW,CAC1B,QAAQ,IAAI,iBAAmB,EAAO,YAAc,mBAAqB,EAAO,kBAPpF,MAUA,YAAS,eAAe,SAAxB,QAAgC,iBAAiB,QAAS,IAAM,CAC9D,UAAU,IAAI,kBAAkB,KAAK,AAAC,GAAQ,CAC5C,MAAM,oBAAsB,MAE7B",
+  "names": []
+}

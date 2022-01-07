@@ -1,0 +1,2 @@
+navigator.usb.getTotalDevices=async()=>(await navigator.usb.getDevices()).length;navigator.usb.getDevices().then(e=>{console.log("Total devices: "+e.length),e.forEach(t=>{console.log("Product name: "+t.productName+", serial number "+t.serialNumber)})});var a;(a=document.getElementById("btn"))==null||a.addEventListener("click",()=>{navigator.usb.getTotalDevices().then(e=>{alert("getTotalDevices: "+e)})},!1);
+//# sourceMappingURL=usb.js.map
